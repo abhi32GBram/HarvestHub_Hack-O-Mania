@@ -2,8 +2,7 @@ import React from "react";
 
 import HarvestHubButton from "@/components/HarvestHubButton";
 import HarvestHubFooter02 from "@/components/HarvestHubFooter02";
-import { Button, Text} from "@/components";
-
+import { Button, Text } from "@/components";
 
 const HarvestHubPage = () => {
   return (
@@ -90,17 +89,10 @@ const HarvestHubPage = () => {
                         </div>
                       </Button>
                     </a>
-                    <a href="/signUp">
+                    <a href="/register">
                       <Button
                         className="border border-solid cursor-pointer flex items-center justify-center min-w-[122px] text-green-A700"
-                        rightIcon={
-                          <img
-                            className="h-6"
-                            src="images/img_arrowright.svg"
-                            alt="arrow_right"
-                          />
-                        }
-                      >
+                        rightIcon={<img className="h-6" src="images/img_arrowright.svg" alt="arrow_right" />}>
                         <div className="font-medium text-left text-lg tracking-[-0.25px] white_A700_72_white_A700_33_border">
                           Sign Up
                         </div>

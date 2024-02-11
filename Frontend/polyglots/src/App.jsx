@@ -1,11 +1,10 @@
 import "./App.css";
-import HarvestHubPage from "./pages/HarvestHub";
-
+import ProjectRoutes from "./Routes";
 
 function App() {
   return (
     <>
-      <HarvestHubPage />
+      <ProjectRoutes />
     </>
   )
 }
