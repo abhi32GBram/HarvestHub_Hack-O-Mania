@@ -1,30 +1,26 @@
-const express = require("express");
+require('dotenv').config(); // Load environment variables from .env file
+
+const express = require('express');
+const db = require('./config/db');
+
+const userRoutes = require('./routes/userRoutes');
+const folderRoutes = require('./routes/folderRoutes');
+const authRoutes = require('./routes/authRoutes')
+
 const app = express();
+const cors = require('cors');
+const PORT = process.env.PORT || 8080;
 
-// Load environment variables from .env file
-require('dotenv').config();
+// Middleware
+app.use(cors());  // Enable all CORS requests
+app.use(express.json());
 
-// Connection with Mongoose
-const mongoose = require('mongoose');
+// Routes
+app.use('/api', userRoutes);
+app.use('/api', folderRoutes);
+app.use('/api', authRoutes);
 
-// Connect to MongoDB using the MONGODB_URI environment variable
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-    .then(() => console.log('Mongoose connected'))
-    .catch((error) => console.log('Mongoose connection error:', error.message));
-
-const dbConnection = mongoose.connection;
-dbConnection.on('error', console.error.bind(console, 'connection error:'));
-dbConnection.once('open', () => {
-    console.log('Connected to MongoDB Atlas!');
-});
-
-app.get('/', (req, res) => {
-    res.send("Welcome to Hack-O-Mania");
-});
-
-app.listen(3000, () => {
-    console.log("Listening at Port -   3000");
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
