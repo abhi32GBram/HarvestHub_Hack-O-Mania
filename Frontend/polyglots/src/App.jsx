@@ -1,10 +1,11 @@
 import "./App.css";
-import SignUp from "./pages/signUp";
+import HarvestHubPage from "./pages/HarvestHub";
+
 
 function App() {
   return (
     <>
-      <SignUp />
+      <HarvestHubPage />
     </>
   )
 }
